@@ -1,0 +1,87 @@
+@use "../../../styles/variables" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  outline: none;
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 13px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.primary {
+    background-color: $accent-color;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(56, 160, 197, 0.25);
+
+    &:hover {
+      background-color: $accent-hover;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(56, 160, 197, 0.35);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &.secondary {
+    background-color: #eef2f6;
+    color: $text-primary;
+
+    &:hover {
+      background-color: #e2e7ec;
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    border: 1px solid $border-color;
+    color: $text-primary;
+
+    &:hover {
+      background-color: #f8fafc;
+      border-color: #d1d7de;
+    }
+  }
+
+  &.ghost {
+    background-color: transparent;
+    color: $text-secondary;
+
+    &:hover {
+      background-color: #f1f4f8;
+      color: $text-primary;
+    }
+  }
+
+  &.small {
+    padding: 6px 12px;
+    font-size: 12px;
+    height: 32px;
+  }
+
+  &.medium {
+    padding: 8px 16px;
+    font-size: 13px;
+    height: 36px;
+  }
+
+  &.large {
+    padding: 10px 20px;
+    font-size: 14px;
+    height: 42px;
+  }
+}

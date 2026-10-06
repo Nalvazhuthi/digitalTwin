@@ -1,0 +1,166 @@
+@use "../../../styles/variables" as *;
+
+.card-container {
+  background-color: $card-bg;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    rgba(0, 0, 0, 0.04) 0px 4px 14px 0px,
+    rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow:
+      rgba(0, 0, 0, 0.08) 0px 12px 28px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background-color: #eef2f6;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.02);
+    }
+  }
+
+  .menu-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 5;
+  }
+
+  .kebab-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.15s ease;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 32px;
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow:
+      0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(0, 0, 0, 0.08);
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    width: 140px;
+    z-index: 20;
+    animation: fadeIn 0.15s ease-out;
+
+    button {
+      background: transparent;
+      border: none;
+      padding: 8px 12px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 500;
+      color: $text-primary;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+
+      &:hover {
+        background-color: #f1f4f8;
+      }
+
+      &.delete {
+        color: #ef4444;
+
+        &:hover {
+          background-color: #fef2f2;
+        }
+      }
+    }
+  }
+
+  .card-content {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: $text-primary;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+
+  .meta-text {
+    color: $text-secondary;
+    font-weight: 500;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    font-size: 12px;
+
+    .dot {
+      font-size: 9px;
+      line-height: 1;
+    }
+
+    &.live {
+      color: $status-live;
+    }
+
+    &.simulation {
+      color: $accent-color;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

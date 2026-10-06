@@ -1,0 +1,59 @@
+@use "../../../styles/variables" as *;
+
+.floating-toolbar {
+  position: absolute;
+  top: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eaedf0;
+  padding: 4px;
+  display: flex;
+  gap: 4px;
+  z-index: 30;
+  pointer-events: auto;
+
+  .divider {
+    width: 1px;
+    height: 20px;
+    background-color: #e2e8f0;
+    align-self: center;
+    margin: 0 2px;
+  }
+
+  .tool-btn {
+    background: transparent;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover:not(.disabled) {
+      background-color: #f1f4f8;
+      color: $text-primary;
+    }
+
+    &.active {
+      background-color: $accent-light;
+      color: $accent-color;
+    }
+
+    &.danger:hover:not(.disabled) {
+      background-color: #fef2f2;
+      color: #ef4444;
+    }
+
+    &.disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+  }
+}

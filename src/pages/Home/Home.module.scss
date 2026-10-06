@@ -1,0 +1,100 @@
+@use "../../styles/variables" as *;
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.header-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+
+  .date-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: $text-secondary;
+  }
+
+  .greeting-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: $text-primary;
+    letter-spacing: -0.6px;
+    margin: 0;
+  }
+}
+
+.filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+
+  .tab-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      color: $text-primary;
+      background-color: #e5eaef;
+    }
+
+    &.active {
+      background-color: #ffffff;
+      color: $text-primary;
+      font-weight: 600;
+      box-shadow:
+        rgba(0, 0, 0, 0.04) 0px 2px 8px 0px,
+        rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    }
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin-top: 4px;
+
+  @media (max-width: 1350px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 960px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px dashed $border-color;
+  margin-top: 10px;
+
+  p {
+    font-size: 14px;
+    color: $text-secondary;
+    font-weight: 500;
+  }
+}

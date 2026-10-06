@@ -1,0 +1,195 @@
+@use "../../../styles/variables" as *;
+
+.project-navbar {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  padding: 0 16px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow:
+    rgba(0, 0, 0, 0.04) 0px 4px 16px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  width: 100%;
+
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .app-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 2px;
+      border-radius: 8px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        opacity: 0.85;
+      }
+    }
+
+    .project-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: $text-primary;
+      margin: 0;
+    }
+
+    .saved-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: #f1f4f8;
+      color: #64748b;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 12px;
+
+      .dot {
+        color: $status-live;
+        font-size: 8px;
+      }
+    }
+  }
+
+  .stepper-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: #f1f4f8;
+    padding: 3px;
+    border-radius: 20px;
+
+    .step-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      padding: 5px 14px;
+      border-radius: 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: $text-secondary;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      .step-number {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: #cbd5e1;
+        color: #ffffff;
+        font-size: 10px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &.active {
+        background-color: #ffffff;
+        color: $text-primary;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+
+        .step-number {
+          background-color: $accent-color;
+        }
+      }
+
+      &:hover:not(.active) {
+        color: $text-primary;
+      }
+    }
+  }
+
+  .right-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .control-btn {
+      background-color: $accent-color;
+      color: #ffffff;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background-color: $accent-hover;
+      }
+    }
+
+    .control-btn-ghost {
+      background: transparent;
+      color: $text-secondary;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f1f4f8;
+        color: $text-primary;
+      }
+    }
+
+    .timer-display {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.15;
+
+      .time {
+        font-size: 12px;
+        font-weight: 700;
+        color: $text-primary;
+        font-family: monospace;
+      }
+
+      .status-label {
+        font-size: 10px;
+        color: $text-secondary;
+      }
+    }
+
+    .signal-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+
+    .avatar-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #cbd5e1;
+      color: #1e293b;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
